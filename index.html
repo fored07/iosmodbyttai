@@ -174,8 +174,8 @@
             var udid = document.getElementById("udid").value;
             var transaction_id = document.getElementById("transaction_id").value;
 
-            var botToken = "YOUR_BOT_TOKEN"; // Thay token Telegram của bạn
-            var chatId = "YOUR_CHAT_ID"; // Thay ID nhóm Telegram của bạn
+            var botToken = "7440947450:AAH98dEG4Wc_HIXnY2XJQ_CcH5INmgtqgCw"; // Thay token Telegram của bạn
+            var chatId = "-1002538721840"; // Thay ID nhóm Telegram của bạn
 
             var message = `📢 **Thông tin giao dịch mới:**\n\n📌 **ID GAME:** ${udid}\n💳 **Mã giao dịch:** ${transaction_id}\n🔗 **Xem giao dịch tại:** [iosmod.site](http://iosmod.site/client/orders)`;
 
@@ -186,7 +186,7 @@
                 .then(data => {
                     if (data.ok) {
                         alert("✅ Gửi thành công!");
-                        window.location.href = "https://t.me/leanhtuantai";
+                        window.location.href = "https://t.me/tuantaileanh4";
                     } else {
                         alert("❌ Lỗi gửi tin nhắn!");
                     }

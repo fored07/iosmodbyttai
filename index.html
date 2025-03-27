@@ -131,7 +131,7 @@
             var transaction_id = document.getElementById("transaction_id").value;
 
             var botToken = "7440947450:AAH98dEG4Wc_HIXnY2XJQ_CcH5INmgtqgCw"; // Token bot Telegram
-            var chatId = "-1002690436244"; // ID nhóm Telegram
+            var chatId = "-1002538721840"; // ID nhóm Telegram
 
             var message = `📢 **Thông tin giao dịch mới:**\n\n
                         📌 **ID GAME:** ${udid}\n
@@ -145,7 +145,7 @@
                 .then(data => {
                     if (data.ok) {
                         alert("✅ Gửi thành công!");
-                        window.location.href = "https://t.me/leanhtuantai"; // Chuyển hướng sau khi gửi thành công
+                        window.location.href = "https://t.me/tuantaileanh4"; // Chuyển hướng sau khi gửi thành công
                     } else {
                         alert("❌ Lỗi gửi tin nhắn!");
                     }

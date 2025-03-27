@@ -5,50 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nhập ID GAME & Mã Giao Dịch</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Orbitron', sans-serif;
+            background: #0c0c0c;
+            color: #00ffea;
             text-align: center;
             margin: 50px;
         }
+
         .button-group {
             margin-bottom: 20px;
         }
+
         .button-group button {
-            background: #007bff;
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
             color: white;
-            padding: 10px 15px;
+            padding: 12px 20px;
             border: none;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 8px;
+            font-size: 18px;
             cursor: pointer;
             margin: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.7);
         }
+
         .button-group button:hover {
-            background: #0056b3;
+            box-shadow: 0px 0px 25px rgba(255, 0, 255, 0.9);
+            transform: scale(1.05);
         }
+
         form {
             display: inline-block;
             text-align: left;
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
         }
-        input, button {
+
+        input {
             width: 100%;
             margin: 10px 0;
-            padding: 10px;
+            padding: 12px;
             font-size: 16px;
+            background: #222;
+            color: #00ffea;
+            border: 2px solid #00ffff;
+            border-radius: 5px;
+            outline: none;
         }
+
         button {
-            background: #28a745;
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            background: linear-gradient(90deg, #00ffea, #ff00ff);
             color: white;
             border: none;
             cursor: pointer;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.7);
         }
+
         button:hover {
-            background: #218838;
+            box-shadow: 0px 0px 25px rgba(255, 0, 255, 0.9);
+            transform: scale(1.05);
         }
+
         .modal {
             display: none;
             position: fixed;
@@ -56,31 +87,42 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.8);
         }
+
         .modal-content {
-            background: white;
+            background: #111;
+            color: #00ffea;
             width: 80%;
             max-width: 500px;
             margin: 10% auto;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
+            box-shadow: 0 0 15px #00ffff;
         }
+
         .close {
             color: red;
             font-size: 24px;
             cursor: pointer;
             float: right;
         }
+
         .video-container {
             margin-top: 20px;
+        }
+
+        .glow-text {
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff, 0 0 30px #00ffea;
         }
     </style>
 </head>
 <body>
 
-    <h2>Nhập ID Game Và Mã Giao Dịch</h2>
+    <h2 class="glow-text">Nhập ID Game Và Mã Giao Dịch</h2>
 
     <div class="button-group">
         <button onclick="openModal()">📽️ Cấu Hình & SeverMod</button>
@@ -94,14 +136,14 @@
         <label for="transaction_id">💳 Mã giao dịch:</label>
         <input type="text" id="transaction_id" name="transaction_id" required placeholder="Nhập mã giao dịch">
 
-        <button type="submit">Gửi Thông Tin</button>
+        <button type="submit">🚀 Gửi Thông Tin</button>
     </form>
 
     <div id="udidModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h3>🔗 Cấu Hình Mod & SeverMod</h3>
-            <a href="https://anotepad.com/notes/qfd6hmn9" target="_blank">
+            <a href="https://anotepad.com/notes/qfd6hmn9" target="_blank" style="color:#00ffea;">
                 Cấu Hình Mod & Severmod
             </a>
             <div class="video-container">
@@ -130,8 +172,8 @@
             var udid = document.getElementById("udid").value;
             var transaction_id = document.getElementById("transaction_id").value;
 
-            var botToken = "7440947450:AAH98dEG4Wc_HIXnY2XJQ_CcH5INmgtqgCw"; // Token bot Telegram
-            var chatId = "-1002538721840"; // ID nhóm Telegram
+            var botToken = "7440947450:AAH98dEG4Wc_HIXnY2XJQ_CcH5INmgtqgCw";
+            var chatId = "-1002538721840";
 
             var message = `📢 **Thông tin giao dịch mới:**\n\n
                         📌 **ID GAME:** ${udid}\n
@@ -145,7 +187,7 @@
                 .then(data => {
                     if (data.ok) {
                         alert("✅ Gửi thành công!");
-                        window.location.href = "https://t.me/tuantaileanh4"; // Chuyển hướng sau khi gửi thành công
+                        window.location.href = "https://t.me/tuantaileanh4";
                     } else {
                         alert("❌ Lỗi gửi tin nhắn!");
                     }

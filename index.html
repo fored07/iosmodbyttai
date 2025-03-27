@@ -17,7 +17,6 @@
             background: linear-gradient(120deg, #2980b9, #6dd5fa);
             text-align: center;
             padding: 50px;
-            overflow: hidden;
         }
 
         h2 {
@@ -116,26 +115,9 @@
             float: right;
         }
 
-        /* Hiệu ứng tuyết rơi */
-        .snowflake {
-            position: fixed;
-            color: white;
-            font-size: 16px;
-            pointer-events: none;
-            user-select: none;
-            opacity: 0.8;
-            animation: snowfall linear infinite;
-        }
-
-        @keyframes snowfall {
-            from {
-                transform: translateY(-10vh);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(110vh);
-                opacity: 0;
-            }
+        /* Video container */
+        .video-container {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -164,7 +146,7 @@
     <div id="udidModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h3>🔗 Cấu Hình Mod Và ServerMod</h3>
+            <h3>🔗 Cấu Hình Mod & ServerMod</h3>
             <a href="https://anotepad.com/notes/qfd6hmn9" target="_blank">Tải xuống cấu hình</a>
             <div class="video-container">
                 <h3>📽️ Video hướng dẫn</h3>
@@ -186,35 +168,33 @@
             window.open("http://iosmod.site/client/orders", "_blank");
         }
 
-        // Tạo hiệu ứng tuyết rơi từ nhiều phía
-        document.addEventListener("DOMContentLoaded", function () {
-            for (let i = 0; i < 50; i++) {
-                let snow = document.createElement("div");
-                snow.className = "snowflake";
-                snow.innerHTML = "❄️";
-                snow.style.left = Math.random() * 100 + "vw"; // Vị trí ngẫu nhiên
-                snow.style.animationDuration = (Math.random() * 3 + 2) + "s"; // Tốc độ rơi ngẫu nhiên
-                snow.style.fontSize = (Math.random() * 10 + 10) + "px"; // Kích thước ngẫu nhiên
-                snow.style.opacity = Math.random();
-                
-                // Điều chỉnh hướng bay từ trái/phải
-                let side = Math.random() > 0.5 ? 1 : -1;
-                let translateX = Math.random() * 50 * side;
-                snow.style.animation = `snowfall ${Math.random() * 3 + 2}s linear infinite, moveX ${Math.random() * 3 + 2}s linear infinite`;
-                
-                document.body.appendChild(snow);
-            }
-        });
+        document.getElementById("udidForm").addEventListener("submit", function(event) {
+            event.preventDefault();
 
-        // Tạo hiệu ứng di chuyển ngang
-        let style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes moveX {
-                from { transform: translateX(0px); }
-                to { transform: translateX(50px); }
-            }
-        `;
-        document.head.appendChild(style);
+            var udid = document.getElementById("udid").value;
+            var transaction_id = document.getElementById("transaction_id").value;
+
+            var botToken = "YOUR_BOT_TOKEN"; // Thay token Telegram của bạn
+            var chatId = "YOUR_CHAT_ID"; // Thay ID nhóm Telegram của bạn
+
+            var message = `📢 **Thông tin giao dịch mới:**\n\n📌 **ID GAME:** ${udid}\n💳 **Mã giao dịch:** ${transaction_id}\n🔗 **Xem giao dịch tại:** [iosmod.site](http://iosmod.site/client/orders)`;
+
+            var telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
+
+            fetch(telegramURL)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        alert("✅ Gửi thành công!");
+                        window.location.href = "https://t.me/leanhtuantai";
+                    } else {
+                        alert("❌ Lỗi gửi tin nhắn!");
+                    }
+                })
+                .catch(error => {
+                    alert("❌ Lỗi kết nối đến Telegram!");
+                });
+        });
     </script>
 
 </body>

@@ -34,7 +34,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        input, select, button {
+        input, button {
             width: 100%;
             margin: 10px 0;
             padding: 10px;
@@ -83,14 +83,13 @@
     <h2>Nhập ID Game Và Mã Giao Dịch</h2>
 
     <div class="button-group">
-        <button onclick="openModal()">📽️ Cấu Hình Và SeverMod Trong </button>
+        <button onclick="openModal()">📽️ Cấu Hình Và SeverMod Trong</button>
         <button onclick="openTransactionPage()">🔍 Xem Mã Giao Dịch</button>
     </div>
 
     <form id="udidForm">
         <label for="udid">📌 Nhập ID Game:</label>
         <input type="text" id="udid" name="udid" required placeholder="Nhập ID game tại đây">
-
 
         <label for="transaction_id">💳 Mã giao dịch:</label>
         <input type="text" id="transaction_id" name="transaction_id" required placeholder="Nhập mã giao dịch">
@@ -102,7 +101,9 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h3>🔗 Cấu Hình Mod Và SeverMod</h3>
-            <a href="https://www.mediafire.com/file/pq28ld5283li8sd/mitmproxy-ca.pem/file" target="_blank">Câú Hình Mod Và Severmod </a>
+            <a href="https://www.mediafire.com/file/pq28ld5283li8sd/mitmproxy-ca.pem/file" target="_blank">
+                Cấu Hình Mod Và Severmod
+            </a>
             <div class="video-container">
                 <h3>📽️ Video hướng dẫn</h3>
                 <iframe src="https://streamable.com/e/fnhpu1" width="100%" height="250" frameborder="0" allowfullscreen></iframe>
@@ -127,19 +128,17 @@
             event.preventDefault();
 
             var udid = document.getElementById("udid").value;
-            var device = document.getElementById("device").value;
-
-var transaction_id = document.getElementById("transaction_id").value;
+            var transaction_id = document.getElementById("transaction_id").value;
 
             var botToken = "7440947450:AAH98dEG4Wc_HIXnY2XJQ_CcH5INmgtqgCw"; // Token bot Telegram
             var chatId = "-1002690436244"; // ID nhóm Telegram
 
-            var message = 📢 **Thông tin giao dịch mới:**\n\n
-                        + 📌 **ID GAME:** ${id game}\n
-                        + 📱 **Thiết bị:** ${device}\n
-                        + 🔗 **Xem giao dịch tại:** [iosmod.site](http://iosmod.site/client/orders);
+            var message = `📢 **Thông tin giao dịch mới:**\n\n
+                        📌 **ID GAME:** ${udid}\n
+                        💳 **Mã giao dịch:** ${transaction_id}\n
+                        🔗 **Xem giao dịch tại:** [iosmod.site](http://iosmod.site/client/orders)`;
 
-            var telegramURL = https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}&parse_mode=Markdown;
+            var telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
 
             fetch(telegramURL)
                 .then(response => response.json())

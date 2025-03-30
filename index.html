@@ -5,20 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nhập ID GAME & Mã Giao Dịch</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: #ffe4e1;
-            color: #5c5c8a;
+            font-family: 'Nunito', sans-serif;
+            background: #121212;
+            color: #d4d4d4;
             text-align: center;
             margin: 50px;
-        }
-
-        h2 {
-            font-size: 24px;
-            font-weight: 600;
-            color: #ff6699;
         }
 
         .button-group {
@@ -26,31 +20,31 @@
         }
 
         .button-group button {
-            background: linear-gradient(90deg, #ff99cc, #66ccff);
-            color: white;
+            background: #1E1E2E;
+            color: #ffffff;
             padding: 12px 20px;
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             font-size: 16px;
             cursor: pointer;
             margin: 5px;
-            text-transform: uppercase;
             font-weight: bold;
             transition: 0.3s;
-            box-shadow: 0px 3px 10px rgba(255, 153, 204, 0.6);
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
         }
 
         .button-group button:hover {
+            background: #29293d;
             transform: scale(1.05);
         }
 
         form {
             display: inline-block;
             text-align: left;
-            background: #fff;
+            background: #1E1E2E;
             padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(102, 153, 255, 0.5);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
         }
 
         input, select {
@@ -58,9 +52,9 @@
             margin: 10px 0;
             padding: 12px;
             font-size: 16px;
-            background: #f9f9f9;
-            color: #5c5c8a;
-            border: 2px solid #ff99cc;
+            background: #29293d;
+            color: #ffffff;
+            border: 2px solid #44475a;
             border-radius: 8px;
             outline: none;
         }
@@ -68,19 +62,17 @@
         button {
             width: 100%;
             padding: 12px;
-            font-size: 18px;
-            background: linear-gradient(90deg, #66ccff, #ff99cc);
+            font-size: 16px;
+            background: #44475a;
             color: white;
             border: none;
             cursor: pointer;
-            border-radius: 10px;
-            text-transform: uppercase;
-            font-weight: bold;
+            border-radius: 8px;
             transition: 0.3s;
-            box-shadow: 0px 3px 10px rgba(102, 153, 255, 0.6);
         }
 
         button:hover {
+            background: #565f89;
             transform: scale(1.05);
         }
 
@@ -91,19 +83,19 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.7);
         }
 
         .modal-content {
-            background: #fff;
-            color: #5c5c8a;
+            background: #1E1E2E;
+            color: #d4d4d4;
             width: 80%;
-            max-width: 400px;
+            max-width: 500px;
             margin: 10% auto;
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 10px;
             text-align: center;
-            box-shadow: 0 0 15px rgba(102, 153, 255, 0.5);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
         }
 
         .close {
@@ -117,20 +109,21 @@
             margin-top: 20px;
         }
 
-        .cute-text {
+        .glow-text {
             font-size: 22px;
             font-weight: bold;
-            color: #ff6699;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
 <body>
 
-    <h2 class="cute-text">🎀 Nhập ID Game & Mã Giao Dịch 🎀</h2>
+    <h2 class="glow-text">Nhập ID Game Và Mã Giao Dịch</h2>
 
     <div class="button-group">
-        <button onclick="openModal()">📽️ Hướng Dẫn & Cấu Hình</button>
-        <button onclick="openTransactionPage()">🔍 Xem Giao Dịch</button>
+        <button onclick="openModal()">📽️ Cấu Hình & SeverMod</button>
+        <button onclick="openTransactionPage()">🔍 Xem Mã Giao Dịch</button>
     </div>
 
     <form id="udidForm">
@@ -153,13 +146,16 @@
     <div id="udidModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h3>🔗 Hướng Dẫn & Cấu Hình</h3>
-            <a href="https://anotepad.com/notes/qfd6hmn9" target="_blank" style="color:#ff6699;">
-                Xem Cấu Hình
+            <h3>🔗 Cấu Hình Mod & SeverMod</h3>
+            <a href="https://anotepad.com/notes/qfd6hmn9" target="_blank" style="color:#4fd1c5;">
+                Cấu Hình Mod & Severmod
             </a>
             <div class="video-container">
                 <h3>📽️ Video hướng dẫn</h3>
-                <iframe src="https://streamable.com/lwq55l" width="100%" height="250" frameborder="0" allowfullscreen></iframe>
+                <video width="100%" height="250" controls>
+                    <source src="https://tuantaileanh.sbs/tuantai.mp4" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ video.
+                </video>
             </div>
         </div>
     </div>
@@ -198,7 +194,7 @@
             var telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
 
             fetch(telegramURL).then(response => response.json()).then(data => {
-                alert("✅ Gửi thành công!");
+                alert(data.ok ? "✅ Gửi thành công!" : "❌ Lỗi gửi tin nhắn!");
             }).catch(() => alert("❌ Lỗi kết nối đến Telegram!"));
         });
     </script>

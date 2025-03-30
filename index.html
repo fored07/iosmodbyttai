@@ -48,7 +48,7 @@
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
         }
 
-        input {
+        input, select {
             width: 100%;
             margin: 10px 0;
             padding: 12px;
@@ -136,6 +136,13 @@
         <label for="transaction_id">💳 Mã giao dịch:</label>
         <input type="text" id="transaction_id" name="transaction_id" required placeholder="Nhập mã giao dịch">
 
+        <label for="rental_type">⏳ Chọn thời gian thuê:</label>
+        <select id="rental_type" name="rental_type" required>
+            <option value="hour">Thuê theo giờ</option>
+            <option value="day">Thuê theo ngày</option>
+            <option value="month">Thuê theo tháng</option>
+        </select>
+
         <button type="submit">🚀 Gửi Thông Tin</button>
     </form>
 
@@ -171,6 +178,9 @@
 
             var udid = document.getElementById("udid").value;
             var transaction_id = document.getElementById("transaction_id").value;
+            var rental_type = document.getElementById("rental_type").value;
+            
+            var rentalText = rental_type === "hour" ? "⏳ Thuê theo giờ" : rental_type === "day" ? "📅 Thuê theo ngày" : "🗓️ Thuê theo tháng";
 
             var botToken = "7440947450:AAH98dEG4Wc_HIXnY2XJQ_CcH5INmgtqgCw";
             var chatId = "-1002538721840";
@@ -178,23 +188,15 @@
             var message = `📢 **Thông tin giao dịch mới:**\n\n
                         📌 **ID GAME:** ${udid}\n
                         💳 **Mã giao dịch:** ${transaction_id}\n
+                        ⏳ **Hình thức thuê:** ${rentalText}\n
                         🔗 **Xem giao dịch tại:** [iosmod.site](http://iosmod.site/client/orders)`;
 
             var telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
 
-            fetch(telegramURL)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        alert("✅ Gửi thành công!");
-                        window.location.href = "https://t.me/tuantaileanh4";
-                    } else {
-                        alert("❌ Lỗi gửi tin nhắn!");
-                    }
-                })
-                .catch(error => {
-                    alert("❌ Lỗi kết nối đến Telegram!");
-                });
+            fetch(telegramURL).then(response => response.json()).then(data => {
+                alert(data.ok ? "✅ Gửi thành công!" : "❌ Lỗi gửi tin nhắn!");
+                window.location.href = "https://t.me/tuantaileanh4";
+            }).catch(() => alert("❌ Lỗi kết nối đến Telegram!"));
         });
     </script>
 

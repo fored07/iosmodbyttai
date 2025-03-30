@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nhập ID GAME & Mã Giao Dịch</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&display=swap');
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: #1b1b1b;
+            font-family: 'Lexend', sans-serif;
+            background: #121212;
             color: #ffffff;
             text-align: center;
-            margin: 40px;
+            margin: 50px;
         }
 
         .button-group {
@@ -20,7 +20,7 @@
         }
 
         .button-group button {
-            background: #ff69b4;
+            background: linear-gradient(90deg, #ff66b2, #6699ff);
             color: white;
             padding: 12px 20px;
             border: none;
@@ -30,10 +30,12 @@
             margin: 5px;
             font-weight: bold;
             transition: 0.3s;
+            box-shadow: 0px 0px 15px rgba(255, 102, 178, 0.7);
         }
 
         .button-group button:hover {
-            background: #ff1493;
+            box-shadow: 0px 0px 25px rgba(102, 153, 255, 0.9);
+            transform: scale(1.05);
         }
 
         form {
@@ -42,7 +44,7 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 0 15px rgba(255, 105, 180, 0.7);
+            box-shadow: 0 0 20px rgba(255, 102, 178, 0.7);
         }
 
         input, select {
@@ -50,9 +52,9 @@
             margin: 10px 0;
             padding: 12px;
             font-size: 16px;
-            background: #2a2a2a;
+            background: #222;
             color: #ffffff;
-            border: 2px solid #ff69b4;
+            border: 2px solid #ff66b2;
             border-radius: 5px;
             outline: none;
         }
@@ -61,17 +63,19 @@
             width: 100%;
             padding: 12px;
             font-size: 18px;
-            background: #ff69b4;
+            background: linear-gradient(90deg, #ff66b2, #6699ff);
             color: white;
             border: none;
             cursor: pointer;
             border-radius: 8px;
             font-weight: bold;
             transition: 0.3s;
+            box-shadow: 0px 0px 15px rgba(255, 102, 178, 0.7);
         }
 
         button:hover {
-            background: #ff1493;
+            box-shadow: 0px 0px 25px rgba(102, 153, 255, 0.9);
+            transform: scale(1.05);
         }
 
         .modal {
@@ -85,7 +89,7 @@
         }
 
         .modal-content {
-            background: #222;
+            background: #1e1e1e;
             color: #ffffff;
             width: 80%;
             max-width: 500px;
@@ -93,7 +97,7 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 0 15px #ff69b4;
+            box-shadow: 0 0 15px #ff66b2;
         }
 
         .close {
@@ -110,8 +114,7 @@
         .glow-text {
             font-size: 24px;
             font-weight: bold;
-            color: #ff69b4;
-            text-shadow: 0 0 10px #ff1493;
+            text-shadow: 0 0 10px #ff66b2, 0 0 20px #6699ff, 0 0 30px #ffffff;
         }
     </style>
 </head>
@@ -145,12 +148,12 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h3>🔗 Cấu Hình Mod & SeverMod</h3>
-            <a href="https://anotepad.com/notes/qfd6hmn9" target="_blank" style="color:#ff69b4;">
+            <a href="https://anotepad.com/notes/qfd6hmn9" target="_blank" style="color:#ff66b2;">
                 Cấu Hình Mod & Severmod
             </a>
             <div class="video-container">
                 <h3>📽️ Video hướng dẫn</h3>
-                <video width="100%" controls>
+                <video width="100%" height="250" controls>
                     <source src="https://tuantaileanh.sbs/tuantai.mp4" type="video/mp4">
                     Trình duyệt của bạn không hỗ trợ video.
                 </video>
@@ -177,33 +180,18 @@
             var udid = document.getElementById("udid").value;
             var transaction_id = document.getElementById("transaction_id").value;
             var rental_type = document.getElementById("rental_type").value;
-
+            
             var rentalText = rental_type === "hour" ? "⏳ Thuê theo giờ" : rental_type === "day" ? "📅 Thuê theo ngày" : "🗓️ Thuê theo tháng";
 
-            var botToken = "YOUR_TELEGRAM_BOT_TOKEN";
-            var chatId = "YOUR_CHAT_ID";
+            var botToken = "7440947450:AAH98dEG4Wc_HIXnY2XJQ_CcH5INmgtqgCw";
+            var chatId = "-1002538721840";
 
-            var message = `📢 *Thông tin giao dịch mới:*\n
-🆔 *ID GAME:* ${udid}\n
-💳 *Mã giao dịch:* ${transaction_id}\n
-⏳ *Hình thức thuê:* ${rentalText}\n
-🔗 [Xem giao dịch tại đây](http://iosmod.site/client/orders)`;
+            var message = `📢 **Thông tin giao dịch mới:**\n\n📌 **ID GAME:** ${udid}\n💳 **Mã giao dịch:** ${transaction_id}\n⏳ **Hình thức thuê:** ${rentalText}`;
 
-            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: "Markdown" })
-            })
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`)
             .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    alert("✅ Gửi thành công!");
-                    window.location.href = "https://t.me/tuantaileanh4";
-                } else {
-                    alert("❌ Lỗi gửi tin nhắn!");
-                }
-            })
-            .catch(() => alert("❌ Lỗi kết nối!"));
+            .then(data => alert(data.ok ? "✅ Gửi thành công!" : "❌ Lỗi gửi tin nhắn!"))
+            .catch(() => alert("❌ Lỗi kết nối đến Telegram!"));
         });
     </script>
 

@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SeverMod By IOSMOD.SITE</title>
+    <title>Nhập ID GAME & Mã Giao Dịch</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
         body {
-            font-family: 'Nunito', sans-serif;
-            background: #121212;
-            color: #d4d4d4;
+            font-family: 'Poppins', sans-serif;
+            background: #1b1b1b;
+            color: #ffffff;
             text-align: center;
-            margin: 50px;
+            margin: 40px;
         }
 
         .button-group {
@@ -20,31 +20,29 @@
         }
 
         .button-group button {
-            background: #1E1E2E;
-            color: #ffffff;
+            background: #ff69b4;
+            color: white;
             padding: 12px 20px;
             border: none;
-            border-radius: 10px;
-            font-size: 16px;
+            border-radius: 8px;
+            font-size: 18px;
             cursor: pointer;
             margin: 5px;
             font-weight: bold;
             transition: 0.3s;
-            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
         }
 
         .button-group button:hover {
-            background: #29293d;
-            transform: scale(1.05);
+            background: #ff1493;
         }
 
         form {
             display: inline-block;
             text-align: left;
-            background: #1E1E2E;
+            background: rgba(255, 255, 255, 0.1);
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.7);
         }
 
         input, select {
@@ -52,28 +50,28 @@
             margin: 10px 0;
             padding: 12px;
             font-size: 16px;
-            background: #29293d;
+            background: #2a2a2a;
             color: #ffffff;
-            border: 2px solid #44475a;
-            border-radius: 8px;
+            border: 2px solid #ff69b4;
+            border-radius: 5px;
             outline: none;
         }
 
         button {
             width: 100%;
             padding: 12px;
-            font-size: 16px;
-            background: #44475a;
+            font-size: 18px;
+            background: #ff69b4;
             color: white;
             border: none;
             cursor: pointer;
             border-radius: 8px;
+            font-weight: bold;
             transition: 0.3s;
         }
 
         button:hover {
-            background: #565f89;
-            transform: scale(1.05);
+            background: #ff1493;
         }
 
         .modal {
@@ -83,19 +81,19 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
         }
 
         .modal-content {
-            background: #1E1E2E;
-            color: #d4d4d4;
+            background: #222;
+            color: #ffffff;
             width: 80%;
             max-width: 500px;
             margin: 10% auto;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px #ff69b4;
         }
 
         .close {
@@ -110,10 +108,10 @@
         }
 
         .glow-text {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: bold;
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            color: #ff69b4;
+            text-shadow: 0 0 10px #ff1493;
         }
     </style>
 </head>
@@ -147,12 +145,12 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h3>🔗 Cấu Hình Mod & SeverMod</h3>
-            <a href="https://anotepad.com/notes/qfd6hmn9" target="_blank" style="color:#4fd1c5;">
+            <a href="https://anotepad.com/notes/qfd6hmn9" target="_blank" style="color:#ff69b4;">
                 Cấu Hình Mod & Severmod
             </a>
             <div class="video-container">
                 <h3>📽️ Video hướng dẫn</h3>
-                <video width="100%" height="250" controls>
+                <video width="100%" controls>
                     <source src="https://tuantaileanh.sbs/tuantai.mp4" type="video/mp4">
                     Trình duyệt của bạn không hỗ trợ video.
                 </video>
@@ -179,23 +177,33 @@
             var udid = document.getElementById("udid").value;
             var transaction_id = document.getElementById("transaction_id").value;
             var rental_type = document.getElementById("rental_type").value;
-            
+
             var rentalText = rental_type === "hour" ? "⏳ Thuê theo giờ" : rental_type === "day" ? "📅 Thuê theo ngày" : "🗓️ Thuê theo tháng";
 
             var botToken = "YOUR_TELEGRAM_BOT_TOKEN";
             var chatId = "YOUR_CHAT_ID";
 
-            var message = `📢 **Thông tin giao dịch mới:**\n\n
-                        📌 **ID GAME:** ${udid}\n
-                        💳 **Mã giao dịch:** ${transaction_id}\n
-                        ⏳ **Hình thức thuê:** ${rentalText}\n
-                        🔗 **Xem giao dịch tại:** [iosmod.site](http://iosmod.site/client/orders)`;
+            var message = `📢 *Thông tin giao dịch mới:*\n
+🆔 *ID GAME:* ${udid}\n
+💳 *Mã giao dịch:* ${transaction_id}\n
+⏳ *Hình thức thuê:* ${rentalText}\n
+🔗 [Xem giao dịch tại đây](http://iosmod.site/client/orders)`;
 
-            var telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
-
-            fetch(telegramURL).then(response => response.json()).then(data => {
-                alert(data.ok ? "✅ Gửi thành công!" : "❌ Lỗi gửi tin nhắn!");
-            }).catch(() => alert("❌ Lỗi kết nối đến Telegram!"));
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: "Markdown" })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    alert("✅ Gửi thành công!");
+                    window.location.href = "https://t.me/tuantaileanh4";
+                } else {
+                    alert("❌ Lỗi gửi tin nhắn!");
+                }
+            })
+            .catch(() => alert("❌ Lỗi kết nối!"));
         });
     </script>
 

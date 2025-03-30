@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nhập ID GAME & Mã Giao Dịch</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
         body {
-            font-family: 'Lexend', sans-serif;
-            background: #121212;
-            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            background: #ffe4e1;
+            color: #5c5c8a;
             text-align: center;
             margin: 50px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ff6699;
         }
 
         .button-group {
@@ -20,31 +26,31 @@
         }
 
         .button-group button {
-            background: linear-gradient(90deg, #ff66b2, #6699ff);
+            background: linear-gradient(90deg, #ff99cc, #66ccff);
             color: white;
             padding: 12px 20px;
             border: none;
-            border-radius: 8px;
-            font-size: 18px;
+            border-radius: 12px;
+            font-size: 16px;
             cursor: pointer;
             margin: 5px;
+            text-transform: uppercase;
             font-weight: bold;
             transition: 0.3s;
-            box-shadow: 0px 0px 15px rgba(255, 102, 178, 0.7);
+            box-shadow: 0px 3px 10px rgba(255, 153, 204, 0.6);
         }
 
         .button-group button:hover {
-            box-shadow: 0px 0px 25px rgba(102, 153, 255, 0.9);
             transform: scale(1.05);
         }
 
         form {
             display: inline-block;
             text-align: left;
-            background: rgba(255, 255, 255, 0.1);
+            background: #fff;
             padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(255, 102, 178, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(102, 153, 255, 0.5);
         }
 
         input, select {
@@ -52,10 +58,10 @@
             margin: 10px 0;
             padding: 12px;
             font-size: 16px;
-            background: #222;
-            color: #ffffff;
-            border: 2px solid #ff66b2;
-            border-radius: 5px;
+            background: #f9f9f9;
+            color: #5c5c8a;
+            border: 2px solid #ff99cc;
+            border-radius: 8px;
             outline: none;
         }
 
@@ -63,18 +69,18 @@
             width: 100%;
             padding: 12px;
             font-size: 18px;
-            background: linear-gradient(90deg, #ff66b2, #6699ff);
+            background: linear-gradient(90deg, #66ccff, #ff99cc);
             color: white;
             border: none;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
             font-weight: bold;
             transition: 0.3s;
-            box-shadow: 0px 0px 15px rgba(255, 102, 178, 0.7);
+            box-shadow: 0px 3px 10px rgba(102, 153, 255, 0.6);
         }
 
         button:hover {
-            box-shadow: 0px 0px 25px rgba(102, 153, 255, 0.9);
             transform: scale(1.05);
         }
 
@@ -85,19 +91,19 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .modal-content {
-            background: #1e1e1e;
-            color: #ffffff;
+            background: #fff;
+            color: #5c5c8a;
             width: 80%;
-            max-width: 500px;
+            max-width: 400px;
             margin: 10% auto;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 0 15px #ff66b2;
+            box-shadow: 0 0 15px rgba(102, 153, 255, 0.5);
         }
 
         .close {
@@ -111,20 +117,20 @@
             margin-top: 20px;
         }
 
-        .glow-text {
-            font-size: 24px;
+        .cute-text {
+            font-size: 22px;
             font-weight: bold;
-            text-shadow: 0 0 10px #ff66b2, 0 0 20px #6699ff, 0 0 30px #ffffff;
+            color: #ff6699;
         }
     </style>
 </head>
 <body>
 
-    <h2 class="glow-text">Nhập ID Game Và Mã Giao Dịch</h2>
+    <h2 class="cute-text">🎀 Nhập ID Game & Mã Giao Dịch 🎀</h2>
 
     <div class="button-group">
-        <button onclick="openModal()">📽️ Cấu Hình & SeverMod</button>
-        <button onclick="openTransactionPage()">🔍 Xem Mã Giao Dịch</button>
+        <button onclick="openModal()">📽️ Hướng Dẫn & Cấu Hình</button>
+        <button onclick="openTransactionPage()">🔍 Xem Giao Dịch</button>
     </div>
 
     <form id="udidForm">
@@ -147,13 +153,13 @@
     <div id="udidModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h3>🔗 Cấu Hình Mod & SeverMod</h3>
-            <a href="https://anotepad.com/notes/qfd6hmn9" target="_blank" style="color:#ff66b2;">
-                Cấu Hình Mod & Severmod
+            <h3>🔗 Hướng Dẫn & Cấu Hình</h3>
+            <a href="https://anotepad.com/notes/qfd6hmn9" target="_blank" style="color:#ff6699;">
+                Xem Cấu Hình
             </a>
             <div class="video-container">
                 <h3>📽️ Video hướng dẫn</h3>
-                <video width="100%" height="250" controls>
+                <video width="100%" controls>
                     <source src="https://tuantaileanh.sbs/tuantai.mp4" type="video/mp4">
                     Trình duyệt của bạn không hỗ trợ video.
                 </video>
@@ -183,15 +189,20 @@
             
             var rentalText = rental_type === "hour" ? "⏳ Thuê theo giờ" : rental_type === "day" ? "📅 Thuê theo ngày" : "🗓️ Thuê theo tháng";
 
-            var botToken = "7440947450:AAH98dEG4Wc_HIXnY2XJQ_CcH5INmgtqgCw";
-            var chatId = "-1002538721840";
+            var botToken = "YOUR_TELEGRAM_BOT_TOKEN";
+            var chatId = "YOUR_CHAT_ID";
 
-            var message = `📢 **Thông tin giao dịch mới:**\n\n📌 **ID GAME:** ${udid}\n💳 **Mã giao dịch:** ${transaction_id}\n⏳ **Hình thức thuê:** ${rentalText}`;
+            var message = `📢 **Thông tin giao dịch mới:**\n\n
+                        📌 **ID GAME:** ${udid}\n
+                        💳 **Mã giao dịch:** ${transaction_id}\n
+                        ⏳ **Hình thức thuê:** ${rentalText}\n
+                        🔗 **Xem giao dịch tại:** [iosmod.site](http://iosmod.site/client/orders)`;
 
-            fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`)
-            .then(response => response.json())
-            .then(data => alert(data.ok ? "✅ Gửi thành công!" : "❌ Lỗi gửi tin nhắn!"))
-            .catch(() => alert("❌ Lỗi kết nối đến Telegram!"));
+            var telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
+
+            fetch(telegramURL).then(response => response.json()).then(data => {
+                alert("✅ Gửi thành công!");
+            }).catch(() => alert("❌ Lỗi kết nối đến Telegram!"));
         });
     </script>
 

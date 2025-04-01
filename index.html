@@ -124,11 +124,47 @@
             font-weight: bold;
             text-shadow: 0 0 10px #FF99CC, 0 0 20px #66CCFF, 0 0 30px #FF99CC;
         }
+
+        .nav-bar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .nav-bar .menu {
+            background: #2C1F46;
+            padding: 10px;
+            color: #E0A3FF;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .balance {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #E0A3FF;
+            font-weight: bold;
+        }
+
+        .account-info {
+            font-size: 18px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
     <h2 class="glow-text">🎀 Nhập ID Game & Mã Giao Dịch 🎀</h2>
+
+    <div class="nav-bar">
+        <div class="menu" onclick="openMenu()">☰ Menu</div>
+    </div>
+
+    <div class="balance">
+        <span>Số tiền còn lại: <span id="balance">500,000 VNĐ</span></span>
+    </div>
 
     <div class="button-group">
         <button onclick="openModal()">📽️ Hướng Dẫn & Cấu Hình</button>
@@ -223,6 +259,10 @@
                 })
             }).then(() => alert("✅ Gửi thành công!")).catch(() => alert("❌ Lỗi kết nối đến Telegram!"));
         });
+        
+        function openMenu() {
+            alert("Menu:\n1. Nạp tiền - Techcombank: 1127071976\n2. Quản lý tài khoản và giao dịch.");
+        }
     </script>
 
 </body>

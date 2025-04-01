@@ -21,30 +21,6 @@
             text-shadow: 0 0 10px #FF99CC, 0 0 20px #66CCFF;
         }
 
-        .button-group {
-            margin-bottom: 20px;
-        }
-
-        .button-group button {
-            background: linear-gradient(90deg, #FF99CC, #66CCFF);
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 5px;
-            text-transform: uppercase;
-            font-weight: bold;
-            transition: 0.3s;
-            box-shadow: 0px 4px 15px rgba(255, 153, 204, 0.7);
-        }
-
-        .button-group button:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 4px 20px rgba(102, 204, 255, 0.9);
-        }
-
         form {
             display: inline-block;
             text-align: left;
@@ -85,55 +61,11 @@
             transform: scale(1.05);
             box-shadow: 0px 4px 20px rgba(255, 153, 204, 0.9);
         }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-        }
-
-        .modal-content {
-            background: #241C3D;
-            color: #E0A3FF;
-            width: 80%;
-            max-width: 500px;
-            margin: 10% auto;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 0 15px #FF99CC;
-        }
-
-        .close {
-            color: #FF6699;
-            font-size: 24px;
-            cursor: pointer;
-            float: right;
-        }
-
-        .video-container {
-            margin-top: 20px;
-        }
-
-        .glow-text {
-            font-size: 24px;
-            font-weight: bold;
-            text-shadow: 0 0 10px #FF99CC, 0 0 20px #66CCFF, 0 0 30px #FF99CC;
-        }
     </style>
 </head>
 <body>
 
-    <h2 class="glow-text">🎀 Nhập ID Game & Mã Giao Dịch 🎀</h2>
-
-    <div class="button-group">
-        <button onclick="openModal()">📽️ Hướng Dẫn & Cấu Hình</button>
-        <button onclick="openTransactionPage()">🔍 Xem Giao Dịch</button>
-    </div>
+    <h2>🎀 Nhập ID Game & Mã Giao Dịch 🎀</h2>
 
     <form id="udidForm">
         <label for="udid">📌 Nhập ID Game:</label>
@@ -152,36 +84,7 @@
         <button type="submit">🚀 Gửi Thông Tin</button>
     </form>
 
-    <div id="udidModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h3>🔗 Hướng Dẫn & Cấu Hình</h3>
-            <a href="https://anotepad.com/notes/qfd6hmn9" target="_blank" style="color:#FF99CC;">
-                Xem Cấu Hình
-            </a>
-            <div class="video-container">
-                <h3>📽️ Video hướng dẫn</h3>
-                <video width="100%" height="250" controls>
-                    <source src="https://tuantaileanh.sbs/tuantai.mp4" type="video/mp4">
-                    Trình duyệt không hỗ trợ video.
-                </video>
-            </div>
-        </div>
-    </div>
-
     <script>
-        function openModal() {
-            document.getElementById("udidModal").style.display = "block";
-        }
-
-        function closeModal() {
-            document.getElementById("udidModal").style.display = "none";
-        }
-
-        function openTransactionPage() {
-            window.open("http://iosmod.site/client/orders", "_blank");
-        }
-
         document.getElementById("udidForm").addEventListener("submit", function(event) {
             event.preventDefault();
 
@@ -191,10 +94,22 @@
 
             var rentalText = rental_type === "hour" ? "⏳ Thuê theo giờ" : rental_type === "day" ? "📅 Thuê theo ngày" : "🗓️ Thuê theo tháng";
 
+            // Lấy giờ và ngày tháng hiện tại
+            var now = new Date();
+            var formattedDate = now.toLocaleString("vi-VN", { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit'
+            });
+
             var botToken = "7440947450:AAH98dEG4Wc_HIXnY2XJQ_CcH5INmgtqgCw";
             var chatId = "-1002538721840";
 
-            var message = `📢 **Thông tin giao dịch mới:**\n\n📌 **ID GAME:** ${udid}\n💳 **Mã giao dịch:** ${transaction_id}\n⏳ **Hình thức thuê:** ${rentalText}`;
+            var message = `📢 **Thông tin giao dịch mới:**\n\n📌 **ID GAME:** ${udid}\n💳 **Mã giao dịch:** ${transaction_id}\n⏳ **Hình thức thuê:** ${rentalText}\n🕒 **Thời gian gửi:** ${formattedDate}`;
 
             var telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage`;
 

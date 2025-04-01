@@ -128,7 +128,7 @@
 </head>
 <body>
 
-    <h2 class="glow-text">🎀 SeverMod của Tuấn Tài 🎀</h2>
+    <h2 class="glow-text">🎀 Nhập ID Game & Mã Giao Dịch 🎀</h2>
 
     <div class="button-group">
         <button onclick="openModal()">📽️ Hướng Dẫn & Cấu Hình</button>
@@ -191,10 +191,25 @@
 
             var rentalText = rental_type === "hour" ? "⏳ Thuê theo giờ" : rental_type === "day" ? "📅 Thuê theo ngày" : "🗓️ Thuê theo tháng";
 
+            // Lấy thời gian hiện tại
+            var now = new Date();
+            var currentTime = `${now.getHours()}:${now.getMinutes()} / ${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`;
+
+            // Tính thời gian hết hạn
+            var expireTime = new Date(now);
+            if (rental_type === "hour") {
+                expireTime.setHours(expireTime.getHours() + 1);
+            } else if (rental_type === "day") {
+                expireTime.setDate(expireTime.getDate() + 1);
+            } else if (rental_type === "month") {
+                expireTime.setMonth(expireTime.getMonth() + 1);
+            }
+            var expireDate = `${expireTime.getHours()}:${expireTime.getMinutes()} / ${expireTime.getDate()}/${expireTime.getMonth() + 1}/${expireTime.getFullYear()}`;
+
             var botToken = "7440947450:AAH98dEG4Wc_HIXnY2XJQ_CcH5INmgtqgCw";
             var chatId = "-1002538721840";
 
-            var message = `📢 **Thông tin giao dịch mới:**\n\n📌 **ID GAME:** ${udid}\n💳 **Mã giao dịch:** ${transaction_id}\n⏳ **Hình thức thuê:** ${rentalText}`;
+            var message = `📢 **Thông tin giao dịch mới:**\n\n📌 **ID GAME:** ${udid}\n💳 **Mã giao dịch:** ${transaction_id}\n⏳ **Hình thức thuê:** ${rentalText}\n🕒 **Thời gian gửi:** ${currentTime}\n⏳ **Thời gian hết hạn:** ${expireDate}`;
 
             var telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage`;
 

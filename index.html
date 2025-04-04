@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhập ID GAME & Mã Giao Dịch</title>
+    <title>Thuê Mod Game</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
 
@@ -16,13 +16,9 @@
         }
 
         h2 {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: bold;
             text-shadow: 0 0 10px #FF99CC, 0 0 20px #66CCFF;
-        }
-
-        .button-group {
-            margin-bottom: 20px;
         }
 
         .button-group button {
@@ -33,7 +29,7 @@
             border-radius: 10px;
             font-size: 16px;
             cursor: pointer;
-            margin: 5px;
+            margin: 10px;
             text-transform: uppercase;
             font-weight: bold;
             transition: 0.3s;
@@ -48,15 +44,15 @@
         form {
             display: inline-block;
             text-align: left;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
             box-shadow: 0 0 20px rgba(255, 153, 204, 0.7);
         }
 
         input, select {
             width: 100%;
-            margin: 10px 0;
+            margin: 10px 0 20px;
             padding: 12px;
             font-size: 16px;
             background: #2C1F46;
@@ -66,7 +62,7 @@
             outline: none;
         }
 
-        button {
+        button[type="submit"] {
             width: 100%;
             padding: 12px;
             font-size: 18px;
@@ -81,42 +77,9 @@
             box-shadow: 0px 4px 15px rgba(102, 204, 255, 0.7);
         }
 
-        button:hover {
+        button[type="submit"]:hover {
             transform: scale(1.05);
             box-shadow: 0px 4px 20px rgba(255, 153, 204, 0.9);
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-        }
-
-        .modal-content {
-            background: #241C3D;
-            color: #E0A3FF;
-            width: 80%;
-            max-width: 500px;
-            margin: 10% auto;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 0 15px #FF99CC;
-        }
-
-        .close {
-            color: #FF6699;
-            font-size: 24px;
-            cursor: pointer;
-            float: right;
-        }
-
-        .video-container {
-            margin-top: 20px;
         }
 
         .glow-text {
@@ -128,11 +91,11 @@
 </head>
 <body>
 
-    <h2 class="glow-text">🎀 Tuan Tai Mod 🎀</h2>
+    <h2 class="glow-text">🎀 Tuan Tai Mod - Form Gửi Giao Dịch 🎀</h2>
 
     <div class="button-group">
-        <button onclick="openModal()">📽️ Hướng Dẫn & Cấu Hình</button>
-        <button onclick="openTransactionPage()">🔍 Xem Giao Dịch</button>
+        <button onclick="window.open('https://youtube.com/@tuantaileanh', '_blank')">📽 Hướng Dẫn Cài</button>
+        <button onclick="window.open('https://www.messenger.com/t/100066896876587', '_blank')">💬 Liên Hệ Admin</button>
     </div>
 
     <form id="udidForm">
@@ -146,46 +109,17 @@
         <select id="rental_type" name="rental_type" required>
             <option value="hour">Thuê 1 giờ</option>
             <option value="day">Thuê 1 ngày</option>
-            <option value="day">Thuê 3 ngày</option>
-            <option value="day">Thuê 7 ngày</option>
-            <option value="day">Thuê 15 ngày</option>
-            <option value="month">Thuê 1 tháng(severvip)</option>
-            <option value="month">Thuê 1 tháng(severthuong)</option>
+            <option value="3day">Thuê 3 ngày</option>
+            <option value="7day">Thuê 7 ngày</option>
+            <option value="15day">Thuê 15 ngày</option>
+            <option value="months">Thuê 1 tháng (VIP)</option>
+            <option value="month">Thuê 1 tháng (Thường)</option>
         </select>
 
         <button type="submit">🚀 Gửi Thông Tin</button>
     </form>
 
-    <div id="udidModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h3>🔗 Hướng Dẫn & Cấu Hình</h3>
-            <a href="https://anotepad.com/notes/5pgfntpj" target="_blank" style="color:#FF99CC;">
-                Xem Cấu Hình
-            </a>
-            <div class="video-container">
-                <h3>📽️ Video hướng dẫn</h3>
-                <video width="100%" height="250" controls>
-                    <source src="https://tuantaileanh.sbs/-4084062894408817004.mov" type="video/mp4">
-                    Trình duyệt không hỗ trợ video.
-                </video>
-            </div>
-        </div>
-    </div>
-
     <script>
-        function openModal() {
-            document.getElementById("udidModal").style.display = "block";
-        }
-
-        function closeModal() {
-            document.getElementById("udidModal").style.display = "none";
-        }
-
-        function openTransactionPage() {
-            window.open("http://iosmod.site/client/orders", "_blank");
-        }
-
         document.getElementById("udidForm").addEventListener("submit", function(event) {
             event.preventDefault();
 
@@ -193,31 +127,47 @@
             var transaction_id = document.getElementById("transaction_id").value;
             var rental_type = document.getElementById("rental_type").value;
 
-            var rentalText = rental_type === "hour" ? "⏳ Thuê theo giờ" : rental_type === "day" ? "📅 Thuê theo ngày" : "🗓️ Thuê theo tháng";
+            var rentalText = rental_type === "hour" ? "⏳ Thuê 1 giờ" :
+                             rental_type === "day" ? "📅 Thuê 1 ngày" :
+                             rental_type === "3day" ? "📅 Thuê 3 ngày" :
+                             rental_type === "7day" ? "📅 Thuê 7 ngày" :
+                             rental_type === "15day" ? "📅 Thuê 15 ngày" :
+                             rental_type === "months" ? "🌟 Thuê 1 tháng (VIP)" :
+                             "🗓️ Thuê 1 tháng (Thường)";
 
-            // Lấy thời gian hiện tại
-            var now = new Date();
-            var currentTime = `${now.getHours()}:${now.getMinutes()} / ${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`;
-
-            // Tính thời gian hết hạn
-            var expireTime = new Date(now);
-            if (rental_type === "hour") {
-                expireTime.setHours(expireTime.getHours() + 1);
-            } else if (rental_type === "day") {
-                expireTime.setDate(expireTime.getDate() + 1);
-            } else if (rental_type === "month") {
-                expireTime.setMonth(expireTime.getMonth() + 1);
+            function formatTime(date) {
+                const pad = (n) => (n < 10 ? "0" + n : n);
+                return `⏰ ${pad(date.getHours())}:${pad(date.getMinutes())} - ${pad(date.getDate())}/${pad(date.getMonth() + 1)}/${date.getFullYear()}`;
             }
-            var expireDate = `${expireTime.getHours()}:${expireTime.getMinutes()} / ${expireTime.getDate()}/${expireTime.getMonth() + 1}/${expireTime.getFullYear()}`;
 
-            var botToken = "7440947450:AAG6JXKdISVfv0bxWXx51CHxYiEKbrktnnE";
-            var chatId = "-1002538721840";
+            var now = new Date();
+            var expireTime = new Date(now);
 
-            var message = `📢 **Thông tin giao dịch mới:**\n\n📌 **ID GAME:** ${udid}\n💳 **Mã giao dịch:** ${transaction_id}\n⏳ **Hình thức thuê:** ${rentalText}\n🕒 **Thời gian gửi:** ${currentTime}\n⏳ **Thời gian hết hạn:** ${expireDate}`;
+            switch (rental_type) {
+                case "hour":
+                    expireTime.setHours(now.getHours() + 1); break;
+                case "day":
+                    expireTime.setHours(now.getHours() + 3); break;
+                case "3day":
+                    expireTime.setHours(now.getHours() + 7); break;
+                case "7day":
+                    expireTime.setHours(now.getHours() + 15); break;
+                case "15day":
+                    expireTime.setDate(now.getDate() + 1); break;
+                case "months":
+                case "month":
+                    expireTime.setMonth(now.getMonth() + 1); break;
+            }
 
-            var telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage`;
+            var currentTime = formatTime(now);
+            var expireDate = formatTime(expireTime);
 
-            fetch(telegramURL, {
+            var botToken = "7440947450:AAG6JXKdISVfv0bxWXx51CHxYiEKbrktnnE"; // Thay bằng token của bot bạn
+            var chatId = "-1002538721840"; // Thay bằng chat ID của bạn
+
+            var message = `📢 **Thông tin giao dịch mới:**\n\n📌 **ID GAME:** ${udid}\n💳 **Mã giao dịch:** ${transaction_id}\n⏳ **Hình thức thuê:** ${rentalText}\n🕒 **Thời gian gửi:** ${currentTime}\n⏰ **Hết hạn:** ${expireDate}`;
+
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -225,7 +175,16 @@
                     text: message,
                     parse_mode: "Markdown"
                 })
-            }).then(() => alert("✅ Gửi thành công!")).catch(() => alert("❌ Lỗi kết nối đến Telegram!"));
+            }).then(response => {
+                if (response.ok) {
+                    alert("✅ Gửi thông tin thành công! Admin sẽ xử lý sớm.");
+                    document.getElementById("udidForm").reset();
+                } else {
+                    alert("❌ Gửi thất bại. Vui lòng thử lại hoặc liên hệ Admin.");
+                }
+            }).catch(error => {
+                alert("Lỗi kết nối Telegram: " + error.message);
+            });
         });
     </script>
 

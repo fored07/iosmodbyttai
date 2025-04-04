@@ -168,7 +168,7 @@
 
             var message = `📢 **Thông tin giao dịch mới:**\n\n📌**ID GAME:** ${udid}\n💳 **Mã giao dịch:** ${transaction_id}\n⏳ **Hình thức thuê:** ${rentalText}\n🕒 **Thời gian gửi:** ${currentTime}\n⏰ **Hết hạn:** ${expireDate}`;
 
-            fetch(telegramURL, {
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -176,19 +176,22 @@
         text: message,
         parse_mode: "Markdown"
     })
-}).then(() => {
-    alert("✅ Gửi thành công!");
-    var submitBtn = document.querySelector("button[type='submit']");
-    submitBtn.disabled = true;
-    submitBtn.innerText = "Đã gửi thành công";
+}).then(response => {
+    if (response.ok) {
+        alert("✅ Gửi thông tin thành công! Admin sẽ xử lý sớm.");
+        document.getElementById("udidForm").reset();
+    } else {
+        alert("❌ Gửi thất bại. Vui lòng thử lại hoặc liên hệ Admin.");
+    }
 
-    // Mở lại nút sau 10 giây
     setTimeout(() => {
         submitBtn.disabled = false;
         submitBtn.innerText = "🚀 Gửi Thông Tin";
-    }, 100000000);
-}).catch(() => alert("❌ Lỗi kết nối đến Telegram!"));
-            });
+    }, 10000); // Kích hoạt lại nút sau 10 giây
+}).catch(() => {
+    alert("❌ Lỗi kết nối đến Telegram!");
+    submitBtn.disabled = false;
+    submitBtn.innerText = "🚀 Gửi Thông Tin";
         });
     </script>
 

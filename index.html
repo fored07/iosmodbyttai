@@ -94,9 +94,10 @@
     <h2 class="glow-text">🎀 Tuan Tai Mod - Form Gửi Giao Dịch 🎀</h2>
 
     <div class="button-group">
-    <button onclick="window.open('https://zalo.me/g/rvcvsm731', '_blank')">⚙️ Hướng Dẫn & Cài Đặt</button>
+        <button onclick="window.open('https://zalo.me/g/rvcvsm731', '_blank')">⚙️ Hướng Dẫn & Cài Đặt</button>
         <button onclick="window.open('https://zalo.me/0976083497', '_blank')">❤️ Zalo Admin</button>
         <button onclick="window.open('https://t.me/foredios', '_blank')">💬 Tele Admin</button>
+    
     </div>
 
     <form id="udidForm">
@@ -166,7 +167,7 @@
             var botToken = "7440947450:AAG6JXKdISVfv0bxWXx51CHxYiEKbrktnnE"; // Thay bằng token của bot bạn
             var chatId = "-1002538721840"; // Thay bằng chat ID của bạn
 
-            var message = `📢 **Thông tin giao dịch mới:**\n\n📌**ID GAME:** ${udid}\n💳 **Mã giao dịch:** ${transaction_id}\n⏳ **Hình thức thuê:** ${rentalText}\n🕒 **Thời gian gửi:** ${currentTime}\n⏰ **Hết hạn:** ${expireDate}`;
+            var message = `📢 **Thông tin giao dịch mới:**\n\n📌 **ID GAME:** ${udid}\n💳 **Mã giao dịch:** ${transaction_id}\n⏳ **Hình thức thuê:** ${rentalText}\n🕒 **Thời gian gửi:** ${currentTime}\n⏰ **Hết hạn:** ${expireDate}`;
 
             fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                 method: "POST",
@@ -185,6 +186,7 @@
                 }
             }).catch(error => {
                 alert("Lỗi kết nối Telegram: " + error.message);
+            });
         });
     </script>
 
